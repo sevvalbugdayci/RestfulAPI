@@ -1,12 +1,22 @@
 const express = require("express");
-const mongoose = require("mongoose");
-
+require('./db/dbConnection')
 
 
 const app = express();
-mongoose.connect('mongodb://localhost/restful_api')
-    .then(() => console.log("veri tabanına bağlandı"))
-    .catch(hata => console.log("db bağlantı hatası"));
-app.listen(3002, () => {
-    console.log("Hİ");
-})
+app.use(express.json());
+app.use(express.urlencoded({ extended : true }))
+
+
+
+app.get('/',(req, res) => {
+    res.status(200).json({'mesaj':'hosgeldiniz'})
+});
+
+
+app.get('/:id',(req, res) => {
+    console.log(req,res)
+    res.status(200).json({'id':req.params.id})
+});
+app.post('/',(req,res) => {
+    res.status(200).json(req.body)
+});
