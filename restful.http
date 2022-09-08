@@ -1,0 +1,43 @@
+@BASE_URL= http://localhost:8080/api
+
+GET {{BASE_URL}}
+
+
+###
+
+GET {{BASE_URL}}99?sortBy=name
+
+
+###
+GET {{BASE_URL}}/users
+
+###
+GET {{BASE_URL}}/users/521
+
+
+
+###
+POST  {{BASE_URL}}/users
+Content-Type: application/json
+
+{
+    "isim":"Şevval",
+    "email":"sevvalbugdayci@gmail.com",
+    "userName" : "sevvalbugdayci",
+    "sifre" : "123456"
+}
+
+
+###
+PATCH   {{BASE_URL}}/users/5454
+Content-Type: application/json
+
+{
+    "isim":"Şevval",
+    "yas":26,
+    "userName" : "sevvalbugdayci"
+}
+
+###
+DELETE    {{BASE_URL}}/users/5454
+Content-Type: application/json
